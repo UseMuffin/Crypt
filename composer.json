@@ -40,6 +40,9 @@
         "cakephp/cakephp-codesniffer": "2.*",
         "phpunit/phpunit": "4.1.*"
     },
+    "suggest": {
+        "paragonie/easyrsa": "Simple and secure asymmetric encryption powered by PHPSecLib"
+    },
     "autoload": {
         "psr-4": {
             "Muffin\\Crypt\\": "src"

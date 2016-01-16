@@ -16,14 +16,14 @@ class AsymmetricStrategy implements StrategyInterface
      *
      * @var resource
      */
-    private $__publicKey;
+    protected $_publicKey;
 
     /**
      * Private key.
      *
      * @var resource
      */
-    private $__privateKey;
+    protected $_privateKey;
 
     /**
      * AsymmetricStrategy constructor.
@@ -42,11 +42,11 @@ class AsymmetricStrategy implements StrategyInterface
      */
     public function __construct($public, $private = null, $passphrase = null)
     {
-        if (!$this->__publicKey = openssl_get_publickey($public)) {
+        if (!$this->_publicKey = openssl_get_publickey($public)) {
             throw new Exception('Invalid public certificate: ' . $public);
         }
 
-        if ($private !== null && !$this->__privateKey = openssl_get_privatekey($private, $passphrase)) {
+        if ($private !== null && !$this->_privateKey = openssl_get_privatekey($private, $passphrase)) {
             throw new Exception('Invalid private certificate: ' . $private);
         }
     }
@@ -56,7 +56,7 @@ class AsymmetricStrategy implements StrategyInterface
      */
     public function encrypt($plain)
     {
-        return Crypt\public_encrypt($plain, $this->__publicKey);
+        return Crypt\public_encrypt($plain, $this->_publicKey);
     }
 
     /**
@@ -64,12 +64,12 @@ class AsymmetricStrategy implements StrategyInterface
      */
     public function decrypt($cipher)
     {
-        if (!$this->__privateKey) {
+        if (!$this->_privateKey) {
             return $cipher;
         }
 
         try {
-            return Crypt\private_decrypt($cipher, $this->__privateKey);
+            return Crypt\private_decrypt($cipher, $this->_privateKey);
         } catch (\Exception $e) {
             return $cipher;
         }
