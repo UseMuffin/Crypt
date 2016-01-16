@@ -7,7 +7,13 @@
 
 CakePHP 3 behavior to allow (a)symmetric encryption/decryption of data by the ORM.
 
-**NOTE: USE AT YOUR OWN RISK, THIS HAS NOT BEEN PEER REVIEWED BY ANY SECURITY EXPERT.**
+Special thanks to security experts [@ircmaxell] & [@voodooKobra] for [reviewing the work][1].
+
+[@ircmaxell]:https://twitter.com/ircmaxell
+[@voodooKobra]:https://twitter.com/voodooKobra
+[1]:https://twitter.com/jadb/status/688422888152657920
+
+**USE AT YOUR OWN RISK. 
 
 ## Install
 
