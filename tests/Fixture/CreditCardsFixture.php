@@ -10,14 +10,10 @@ class CreditCardsFixture extends TestFixture
     public $table = 'crypt_credit_cards';
 
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => 11, 'autoIncrement' => true],
+        'id' => ['type' => 'integer'],
         'number' => ['type' => 'string', 'length' => 2048],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-        ],
-        '_options' => [
-            'engine' => 'InnoDB',
-            'collation' => 'utf8_general_ci'
+            'primary' => ['type' => 'primary', 'columns' => ['id']],
         ],
     ];
 

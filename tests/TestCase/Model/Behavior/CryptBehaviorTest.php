@@ -96,7 +96,10 @@ class CryptBehaviorTest extends TestCase
 
     public function testEncrypt()
     {
-        $strategy = $this->getMock(CryptBehavior::DEFAULT_STRATEGY, ['encrypt'], ['bar']);
+        $strategy = $this->getMockBuilder(CryptBehavior::DEFAULT_STRATEGY)
+            ->setMethods(['encrypt'])
+            ->setConstructorArgs(['bar'])
+            ->getMock();
         $this->Behavior->config(compact('strategy'));
 
         $strategy->expects($this->once())
@@ -110,7 +113,10 @@ class CryptBehaviorTest extends TestCase
 
     public function testDecrypt()
     {
-        $strategy = $this->getMock(CryptBehavior::DEFAULT_STRATEGY, ['decrypt'], ['bar']);
+        $strategy = $this->getMockBuilder(CryptBehavior::DEFAULT_STRATEGY)
+            ->setMethods(['decrypt'])
+            ->setConstructorArgs(['bar'])
+            ->getMock();
         $this->Behavior->config(compact('strategy'));
 
         $strategy->expects($this->once())
