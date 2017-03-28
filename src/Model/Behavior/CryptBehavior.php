@@ -108,6 +108,7 @@ class CryptBehavior extends Behavior
                 $plain = $this->decrypt($cipher);
                 $row->set($field, Type::build($type)->toPHP($plain, $driver));
             }
+
             return $row;
         };
 
@@ -172,7 +173,7 @@ class CryptBehavior extends Behavior
     /**
      * Resolves configured strategy.
      *
-     * @param $strategy
+     * @param string|Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface $strategy Strategy
      * @return mixed
      * @throws \Cake\Core\Exception\Exception
      */
@@ -199,7 +200,7 @@ class CryptBehavior extends Behavior
     /**
      * Resolves configured fields.
      *
-     * @param $fields Fields to resolve.
+     * @param string|array $fields Fields to resolve.
      * @return array
      * @throws \Cake\Core\Exception\Exception
      */

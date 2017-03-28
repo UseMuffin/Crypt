@@ -33,7 +33,7 @@ class AsymmetricStrategy implements StrategyInterface
      *   - a PEM formatted public key
      *   - a string having the format `file://path/to/file.pem`. The named file
      *   must contain a PEM encoded certificate/public key (it may contain both).
-     * @param string $public Optional. A valid private certificate, can be:
+     * @param string $private Optional. A valid private certificate, can be:
      *   - a string having the format file://path/to/file.pem. The named file
      *   must contain a PEM encoded certificate.
      *   - a PEM encoded certificate

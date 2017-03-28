@@ -14,6 +14,7 @@ if (!function_exists('\Muffin\Crypt\public_encrypt')) {
     function public_encrypt($plain, $certificate)
     {
         openssl_public_encrypt($plain, $cipher, openssl_get_publickey($certificate), OPENSSL_PKCS1_OAEP_PADDING);
+
         return base64_encode($cipher);
     }
 }
@@ -32,6 +33,7 @@ if (!function_exists('\Muffin\Crypt\private_decrypt')) {
     {
         $resource = openssl_get_privatekey($certificate, $passphrase);
         openssl_private_decrypt(base64_decode($cipher), $plain, $resource, OPENSSL_PKCS1_OAEP_PADDING);
+
         return $plain;
     }
 }
