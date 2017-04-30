@@ -94,7 +94,7 @@ class CryptBehavior extends Behavior
      */
     public function findDecrypted(Query $query, array $options)
     {
-        if(!$query->isEmpty()) {
+        if(!$query->isEmpty() && $query->isHydrationEnabled()) {
             $options += ['fields' => []];
             $mapper = function ($row) use ($options) {
                 $driver = $this->_table->connection()->driver();
