@@ -94,29 +94,35 @@ class CryptBehavior extends Behavior
      */
     public function findDecrypted(Query $query, array $options)
     {
-        $options += ['fields' => []];
-        $mapper = function ($row) use ($options) {
-            $driver = $this->_table->connection()->driver();
-            foreach ($this->config('fields') as $field => $type) {
-                if (($options['fields'] && !in_array($field, (array)$options['fields']))
-                    || !$row->has($field)
-                ) {
-                    continue;
+        if ($query->isHydrationEnabled()) {
+            $options += ['fields' => []];
+            $mapper = function ($row) use ($options) {
+                $driver = $this->_table->connection()->driver();
+                foreach ($this->config('fields') as $field => $type) {
+                    if (($options['fields'] && !in_array($field, (array)$options['fields']))
+                        || !$row->has($field)
+                    ) {
+                        continue;
+                    }
+
+                    $cipher = $row->get($field);
+                    $plain = $this->decrypt($cipher);
+                    $row->set($field, Type::build($type)->toPHP($plain, $driver));
                 }
 
-                $cipher = $row->get($field);
-                $plain = $this->decrypt($cipher);
-                $row->set($field, Type::build($type)->toPHP($plain, $driver));
-            }
+                return $row;
+            };
 
-            return $row;
-        };
+            $formatter = function ($results) use ($mapper) {
+                if (!$results->isEmpty()) {
+                    return $results->map($mapper);
+                }
+                return $results;
+            };
 
-        $formatter = function ($results) use ($mapper) {
-            return $results->map($mapper);
-        };
-
-        return $query->formatResults($formatter);
+            return $query->formatResults($formatter);
+        }
+        return $query;
     }
 
     /**
