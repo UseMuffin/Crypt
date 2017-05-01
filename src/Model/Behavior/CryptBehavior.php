@@ -99,7 +99,7 @@ class CryptBehavior extends Behavior
             $driver = $this->_table->connection()->driver();
             foreach ($this->config('fields') as $field => $type) {
                 if (($options['fields'] && !in_array($field, (array)$options['fields']))
-                    || !$row->has($field)
+                    || is_string($row) || (is_array($row) ? !isset($row[$field]) : !$row->has($field))
                 ) {
                     continue;
                 }
