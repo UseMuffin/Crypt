@@ -13,12 +13,6 @@ use Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface;
 
 class CryptBehavior extends Behavior
 {
-
-    /**
-     * Configuration path to the default key.
-     */
-    const DEFAULT_KEY = 'Security.salt';
-
     /**
      * Default column type used when none is defined for the field.
      */
@@ -179,7 +173,7 @@ class CryptBehavior extends Behavior
      */
     protected function _resolveStrategy($strategy)
     {
-        $key = Configure::read(self::DEFAULT_KEY);
+        $key = Security::getSalt();
 
         if (!$strategy) {
             $class = self::DEFAULT_STRATEGY;
