@@ -2,13 +2,13 @@
 namespace Muffin\Crypt\Model\Behavior;
 
 use ArrayObject;
-use Cake\Core\Configure;
 use Cake\Core\Exception\Exception;
 use Cake\Database\Type;
 use Cake\Datasource\EntityInterface;
 use Cake\Event\Event;
 use Cake\ORM\Behavior;
 use Cake\ORM\Query;
+use Cake\Utility\Security;
 use Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface;
 
 class CryptBehavior extends Behavior
