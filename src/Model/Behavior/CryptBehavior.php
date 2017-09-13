@@ -169,7 +169,7 @@ class CryptBehavior extends Behavior
     /**
      * Resolves configured strategy.
      *
-     * @param string|Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface $strategy Strategy
+     * @param string|\Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface $strategy Strategy
      * @return mixed
      * @throws \Cake\Core\Exception\Exception
      */
