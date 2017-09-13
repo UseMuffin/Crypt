@@ -13,14 +13,14 @@ Special thanks to security experts [@ircmaxell] & [@voodooKobra] for [reviewing 
 [@voodooKobra]:https://twitter.com/voodooKobra
 [1]:https://twitter.com/jadb/status/688422888152657920
 
-**USE AT YOUR OWN RISK.
+**USE AT YOUR OWN RISK.**
 
 ## Install
 
 Using [Composer][composer]:
 
 ```
-composer require muffin/crypt:dev-master
+composer require muffin/crypt
 ```
 
 You then need to load the plugin. You can use the shell command:
@@ -40,7 +40,7 @@ Plugin::load('Muffin/Crypt');
 By default, the behavior will use the `Cake\Utility\Security` and not decrypt every find operation. Both configuration
 could be overridden when setting up the behavior:
 
-```
+```php
 $this->addBehavior('Muffin/Crypt.Crypt', [
     'fields' => ['cc_number', 'cc_cvv'],
     'strategy' => '\Muffin\Crypt\Model\Behavior\Strategy\AsymmetricStrategy',
@@ -55,7 +55,7 @@ If the fields you are encrypting are of a specific type (i.e. `POINT`), and if s
 the behavior will take care of transforming the data back and forth. If using a custom type, make sure it is added to
 your table.
 
-```
+```php
 $this->addBehavior('Muffin/Crypt.Crypt', [
     'fields' => ['location' => 'point'],
 ]);
