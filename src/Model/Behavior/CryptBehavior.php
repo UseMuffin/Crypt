@@ -9,15 +9,11 @@ use Cake\Datasource\EntityInterface;
 use Cake\Event\Event;
 use Cake\ORM\Behavior;
 use Cake\ORM\Query;
+use Cake\Utility\Security;
 use Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface;
 
 class CryptBehavior extends Behavior
 {
-
-    /**
-     * Configuration path to the default key.
-     */
-    const DEFAULT_KEY = 'Security.salt';
 
     /**
      * Default column type used when none is defined for the field.
@@ -173,13 +169,13 @@ class CryptBehavior extends Behavior
     /**
      * Resolves configured strategy.
      *
-     * @param string|Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface $strategy Strategy
+     * @param string|\Muffin\Crypt\Model\Behavior\Strategy\StrategyInterface $strategy Strategy
      * @return mixed
      * @throws \Cake\Core\Exception\Exception
      */
     protected function _resolveStrategy($strategy)
     {
-        $key = Configure::read(self::DEFAULT_KEY);
+        $key = Security::salt();
 
         if (!$strategy) {
             $class = self::DEFAULT_STRATEGY;
