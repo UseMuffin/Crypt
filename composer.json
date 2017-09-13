@@ -33,10 +33,10 @@
         "source": "https://github.com/usemuffin/crypt"
     },
     "require": {
+        "cakephp/cakephp": "^3.2",
         "ext-openssl": "*"
     },
     "require-dev": {
-        "cakephp/cakephp": "~3.0",
         "phpunit/phpunit": "<6.0"
     },
     "autoload": {
