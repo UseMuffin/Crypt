@@ -2,7 +2,6 @@
 namespace Muffin\Crypt\Model\Behavior;
 
 use ArrayObject;
-use Cake\Core\Configure;
 use Cake\Core\Exception\Exception;
 use Cake\Database\Type;
 use Cake\Datasource\EntityInterface;
