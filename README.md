@@ -1,7 +1,7 @@
 # Crypt
 
 [![Build Status](https://img.shields.io/travis/UseMuffin/Crypt/master.svg?style=flat-square)](https://travis-ci.org/UseMuffin/Crypt)
-[![Coverage](https://img.shields.io/coveralls/UseMuffin/Crypt/master.svg?style=flat-square)](https://coveralls.io/r/UseMuffin/Crypt)
+[![Coverage](https://img.shields.io/codecov/c/github/UseMuffin/Crypt/master.svg?style=flat-square)](https://codecov.io/github/UseMuffin/Crypt)
 [![Total Downloads](https://img.shields.io/packagist/dt/muffin/crypt.svg?style=flat-square)](https://packagist.org/packages/muffin/crypt)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
@@ -13,7 +13,7 @@ Special thanks to security experts [@ircmaxell] & [@voodooKobra] for [reviewing 
 [@voodooKobra]:https://twitter.com/voodooKobra
 [1]:https://twitter.com/jadb/status/688422888152657920
 
-**USE AT YOUR OWN RISK. 
+**USE AT YOUR OWN RISK.
 
 ## Install
 
@@ -78,7 +78,7 @@ http://github.com/usemuffin/crypt/issues
 
 ## License
 
-Copyright (c) 2015, [Use Muffin][muffin] and licensed under [The MIT License][mit].
+Copyright (c) 2017, [Use Muffin][muffin] and licensed under [The MIT License][mit].
 
 [cakephp]:http://cakephp.org
 [composer]:http://getcomposer.org
